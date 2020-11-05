@@ -17,7 +17,18 @@ class Header extends Component {
   }
 }
 
-const headerStyle = {};
-const linkStyle = {};
+const headerStyle = {
+  background: "#333",
+  color: "#fff",
+  textAlign: "center",
+  padding: "10px",
+};
+
+const linkStyle = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-around",
+  padding: "5px",
+};
 
 export default Header;
