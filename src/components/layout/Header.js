@@ -6,10 +6,16 @@ class Header extends Component {
     return (
       <div style={headerStyle}>
         Pokemon
-        <div style={linkStyle}>
-          <Link to="/pokemon">Pokemons</Link>
+        <div style={flexboxStyle}>
           <div style={linkStyle}>
-            <Link to="/type">Types</Link>
+            <Link to="/pokemons">
+              <button>Pokemons</button>
+            </Link>
+          </div>
+          <div style={linkStyle}>
+            <Link to="/type">
+              <button>Type</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -19,16 +25,21 @@ class Header extends Component {
 
 const headerStyle = {
   background: "#333",
-  color: "#fff",
+  backgroundColor: "#282c34",
   textAlign: "center",
+  color: "rgb(248, 204, 70)",
   padding: "10px",
+  borderRadius: "5px",
 };
 
-const linkStyle = {
+const flexboxStyle = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
-  padding: "5px",
+};
+
+const linkStyle = {
+  color: "rgb(248, 204, 70)",
 };
 
 export default Header;
