@@ -1,41 +1,45 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 class Pokemon extends Component {
   constructor() {
     super();
     this.state = {
-      pokemonImg: {},
+      pokemonId: "",
+      pokemonImg: "",
     };
   }
 
   componentDidMount() {
     const url = this.props.pokemon.url;
-    axios
-      .get(url)
-      .then((pokemonData) =>
-        this.setState({ pokemonImg: pokemonData.data.sprites.front_default })
-      );
+    axios.get(url).then((pokemon) =>
+      this.setState({
+        pokemonId: pokemon.data.id,
+        pokemonImg: pokemon.data.sprites.front_default,
+      })
+    );
   }
 
   render() {
-    console.log(this.state.pokemonImg);
     return (
-      <div style={cardStyle}>
-        <div>
-          <img src={this.state.pokemonImg} />
+      <Link to={`/pokemon/${this.state.pokemonId}`}>
+        <div style={cardStyle}>
+          <div>
+            <img src={this.state.pokemonImg} alt={this.props.name} />
+          </div>
+          <div>
+            <p style={cardName}>{this.props.pokemon.name}</p>
+          </div>
         </div>
-        <div content="width=device-width">
-          <p style={cardName}>{this.props.pokemon.name}</p>
-        </div>
-      </div>
+      </Link>
     );
   }
 }
 
 const cardStyle = {
   boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
-  borderRadius: "10px",
+  borderRadius: "0px 0px 10px 10px",
   boxSizing: "border-box",
   display: "table",
   margin: "20px",
@@ -46,7 +50,6 @@ const cardStyle = {
 const cardName = {
   fontSize: "15px",
   color: "rgb(248, 204, 70)",
-  fontSize: "20px",
 };
 
 export default Pokemon;
