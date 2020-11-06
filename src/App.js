@@ -25,7 +25,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <Route path="/pokemons">
-            <div>
+            <div style={pokemonContainer}>
               <PokemonList pokemons={this.state.pokemons} />
             </div>
           </Route>
@@ -34,5 +34,13 @@ class App extends Component {
     );
   }
 }
+
+const pokemonContainer = {
+  display: "flex",
+  flexWrap: "wrap",
+  boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+  padding: "20px",
+  borderRadius: "5px",
+};
 
 export default App;
