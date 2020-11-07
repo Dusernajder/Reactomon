@@ -16,9 +16,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon")
-      .then((response) => this.setState({ pokemons: response.data.results }));
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=40").then((response) =>
+      this.setState({
+        pokemons: response.data.results,
+      })
+    );
   }
 
   render() {
