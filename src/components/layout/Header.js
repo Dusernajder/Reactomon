@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../logo.png";
 
 class Header extends Component {
   render() {
     return (
       <div style={headerStyle}>
-        Pokemon
+        <Link to={"/"}>
+          <img src={logo} alt="Pokemon Logo" style={logoStyle} />
+        </Link>
         <div style={flexboxStyle}>
           <div style={linkStyle}>
             <Link to="/pokemons">
@@ -14,7 +17,7 @@ class Header extends Component {
           </div>
           <div style={linkStyle}>
             <Link to="/type">
-              <button style={buttonStyle}>Type</button>
+              <button style={buttonStyle}>Types</button>
             </Link>
           </div>
         </div>
@@ -30,14 +33,19 @@ const headerStyle = {
   textAlign: "center",
   color: "rgb(248, 204, 70)",
   padding: "10px",
-  borderRadius: "5px",
+  borderRadius: "10px 10px 0px 0px",
   margin: "0px 0px 20px 0px",
+};
+
+const logoStyle = {
+  maxHeight: "150px",
+  minWidth: "20px",
 };
 
 const flexboxStyle = {
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-around",
+  justifyContent: "center",
 };
 
 const linkStyle = {
@@ -45,12 +53,13 @@ const linkStyle = {
 };
 
 const buttonStyle = {
-  fontSize: "16px",
+  fontSize: "26px",
   backgroundColor: "rgb(248, 204, 70)",
   border: "none",
   display: "inline-block",
   color: "#282c34",
   borderRadius: "5px",
+  margin: "10px",
 };
 
 export default Header;
