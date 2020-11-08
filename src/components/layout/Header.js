@@ -16,7 +16,7 @@ class Header extends Component {
             </Link>
           </div>
           <div style={linkStyle}>
-            <Link to="/type">
+            <Link to="/types">
               <button style={buttonStyle}>Types</button>
             </Link>
           </div>
