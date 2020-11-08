@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import PokemonList from "./components/layout/PokemonList";
 import PokemonDetail from "./components/layout/PokemonDetail";
 import "./App.css";
+import TypeList from "./components/layout/TypeList";
 
 class App extends Component {
   constructor() {
@@ -38,6 +39,9 @@ class App extends Component {
           </Route>
           <Route path="/pokemon/:id">
             <PokemonDetail pokemon={this.state.pokemon} />
+          </Route>
+          <Route path="/types">
+            <TypeList />
           </Route>
         </div>
       </Router>
