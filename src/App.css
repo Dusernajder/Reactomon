@@ -1,7 +1,12 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+button:hover {
+  font-weight: bold;
 }
