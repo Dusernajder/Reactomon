@@ -29,4 +29,25 @@ class TypeList extends Component {
   }
 }
 
+const typeStyle = {
+  boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+  borderRadius: "0px 0px 10px 10px",
+  boxSizing: "border-box",
+  display: "table",
+  margin: "15px",
+  padding: "10px",
+  background: "#282c34",
+  fontSize: "26px",
+  color: "rgb(248, 204, 70)",
+};
+
+const flexboxStyle = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+  padding: "20px",
+  borderRadius: "0px 0px 10px 10px",
+};
+
 export default TypeList;
