@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.png";
 
-class Header extends Component {
+class Navbar extends Component {
   render() {
     return (
       <div style={headerStyle}>
@@ -62,4 +62,4 @@ const buttonStyle = {
   margin: "10px",
 };
 
-export default Header;
+export default Navbar;

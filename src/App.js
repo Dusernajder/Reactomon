@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import React, { Component } from "react";
 import axios from "axios";
-import Header from "./components/layout/Header";
 import PokemonList from "./components/layout/PokemonList";
 import PokemonDetail from "./components/layout/PokemonDetail";
-import "./App.css";
 import TypeList from "./components/layout/TypeList";
+import Navbar from "./components/layout/Navbar";
+import "./App.css";
 
 class App extends Component {
   constructor() {
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <Navbar />
           <Route path="/(pokemons|)">
             <div style={pokemonContainer}>
               <PokemonList
