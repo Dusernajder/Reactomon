@@ -1,45 +1,40 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-class Pokemon extends Component {
-  constructor() {
-    super();
-    this.state = {
-      pokemonId: "",
-      pokemonImg: "",
-    };
-  }
+const Pokemon = (props) => {
+  const [pokemonId, setPokemonId] = useState("");
+  const [pokemonImg, setPokemonImg] = useState("");
 
-  componentDidMount() {
-    const url = this.props.pokemon.url;
-    axios.get(url).then((pokemon) =>
-      this.setState({
-        pokemonId: pokemon.data.id,
-        pokemonImg: pokemon.data.sprites.other.dream_world.front_default,
-      })
-    );
-  }
+  const fetchPokemon = () => {
+    const url = props.pokemon.url;
+    axios.get(url).then((pokemon) => {
+      setPokemonId(pokemon.data.id);
+      setPokemonImg(pokemon.data.sprites.other.dream_world.front_default);
+    });
+  };
 
-  render() {
-    return (
-      <Link to={`/pokemon/${this.state.pokemonId}`}>
-        <div style={cardStyle} onClick={this.props.detailPokemon}>
-          <div>
-            <img
-              src={this.state.pokemonImg}
-              alt={this.props.pokemon.name}
-              style={imgStyle}
-            />
-          </div>
-          <div>
-            <p style={cardName}>{this.props.pokemon.name}</p>
-          </div>
+  useEffect(() => {
+    fetchPokemon();
+  }, []);
+
+  return (
+    <Link to={`/pokemon/${pokemonId}`}>
+      <div
+        style={cardStyle}
+        onClick={props.detailPokemon}
+        className="pokemonCard"
+      >
+        <div>
+          <img src={pokemonImg} alt={props.pokemon.name} style={imgStyle} />
         </div>
-      </Link>
-    );
-  }
-}
+        <div>
+          <p style={cardName}>{props.pokemon.name}</p>
+        </div>
+      </div>
+    </Link>
+  );
+};
 
 const cardStyle = {
   boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
