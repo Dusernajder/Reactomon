@@ -1,30 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.png";
 
-class Navbar extends Component {
-  render() {
-    return (
-      <div style={headerStyle}>
-        <Link to={"/"}>
-          <img src={logo} alt="Pokemon Logo" style={logoStyle} />
-        </Link>
-        <div style={flexboxStyle}>
-          <div style={linkStyle}>
-            <Link to="/pokemons">
-              <button style={buttonStyle}>Pokemons</button>
-            </Link>
-          </div>
-          <div style={linkStyle}>
-            <Link to="/types">
-              <button style={buttonStyle}>Types</button>
-            </Link>
-          </div>
+const Navbar = (props) => {
+  return (
+    <div style={headerStyle}>
+      <Link to={"/"}>
+        <img src={logo} alt="Pokemon Logo" style={logoStyle} />
+      </Link>
+      <div style={flexboxStyle}>
+        <div style={linkStyle}>
+          <Link to="/pokemons">
+            <button style={buttonStyle}>Pokemons</button>
+          </Link>
+        </div>
+        <div style={linkStyle}>
+          <Link to="/types">
+            <button style={buttonStyle}>Types</button>
+          </Link>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const headerStyle = {
   boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
