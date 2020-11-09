@@ -10,3 +10,7 @@
 button:hover {
   font-weight: bold;
 }
+
+.pokemonCard:hover {
+  scale: 1.2;
+}
